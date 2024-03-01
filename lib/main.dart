@@ -31,6 +31,28 @@ class MyApp extends StatelessWidget {
                       Radius.circular(15),
                     ),
                   ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Row(
+                      children: [
+                        Image.asset('assets/images/icon_apple_blue.png'),
+                        Expanded(
+                          child: Text(
+                            'جستو جوی محصولات',
+                            textAlign: TextAlign.end,
+                            style: TextStyle(
+                                fontFamily: 'SB',
+                                fontSize: 16,
+                                color: CustomColor.grey),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Image.asset('assets/images/icon_search.png'),
+                      ],
+                    ),
+                  ),
                 ),
               ),
             ),
