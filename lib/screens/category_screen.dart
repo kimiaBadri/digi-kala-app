@@ -25,23 +25,48 @@ class CategoryScreen extends StatelessWidget {
                   ),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: Row(children: [
-                      Image.asset('assets/images/icon_apple_blue.png'),
-                      Expanded(
-                        child: Text(
-                          'دسته بندی',
-                          textAlign: TextAlign.end,
-                          style: TextStyle(
-                              fontFamily: 'SB',
-                              fontSize: 16,
-                              color: CustomColor.blue),
+                    child: Row(
+                      children: [
+                        Image.asset('assets/images/icon_apple_blue.png'),
+                        Expanded(
+                          child: Text(
+                            'دسته بندی',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontFamily: 'SB',
+                                fontSize: 16,
+                                color: CustomColor.blue),
+                          ),
                         ),
-                      ),
-                    ]),
+                      ],
+                    ),
                   ),
                 ),
               ),
             ),
+            SliverPadding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 44,
+              ),
+              sliver: SliverGrid(
+                delegate: SliverChildBuilderDelegate(
+                  (context, index) {
+                    return Container(
+                      decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(15),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 20,
+                    crossAxisSpacing: 20),
+              ),
+            )
           ],
         ),
       ),
