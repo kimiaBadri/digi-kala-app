@@ -1,5 +1,4 @@
-import 'package:digi_kala_project/screens/category_screen.dart';
-import 'package:digi_kala_project/screens/home_screen.dart';
+import 'package:digi_kala_project/screens/product_list_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,8 +11,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: CategoryScreen(),
-    );
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+          appBar: AppBar(),
+          body: ProductListScreen(),
+          bottomNavigationBar: BottomNavigationBar(items: []),
+        ));
   }
 }
