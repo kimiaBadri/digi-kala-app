@@ -26,31 +26,96 @@ class MyApp extends StatelessWidget {
               type: BottomNavigationBarType.fixed,
               backgroundColor: Colors.transparent,
               elevation: 0,
+              selectedLabelStyle: TextStyle(
+                fontFamily: 'SB',
+                fontSize: 10,
+                color: Colors.black,
+              ),
+              unselectedLabelStyle: TextStyle(
+                fontFamily: 'SB',
+                fontSize: 10,
+                color: CustomColor.grey,
+              ),
               items: [
                 BottomNavigationBarItem(
-                  icon: Container(
-                    child: Image.asset('assets/images/icon_home.png'),
-                    decoration: BoxDecoration(boxShadow: [
-                      BoxShadow(
-                          color: CustomColor.blue,
-                          blurRadius: 20,
-                          spreadRadius: -7,
-                          offset: Offset(0.0, 13))
-                    ]),
+                  icon: Image.asset('assets/images/icon_profile.png'),
+                  activeIcon: Padding(
+                    padding: const EdgeInsets.only(bottom: 5),
+                    child: Container(
+                      child:
+                          Image.asset('assets/images/icon_profile_active.png'),
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                              color: CustomColor.blue,
+                              blurRadius: 20,
+                              spreadRadius: -7,
+                              offset: Offset(0.0, 13))
+                        ],
+                      ),
+                    ),
                   ),
-                  label: 'home',
+                  label: 'حساب کاربری',
+                ),
+                BottomNavigationBarItem(
+                  icon: Image.asset('assets/images/icon_basket.png'),
+                  activeIcon: Padding(
+                    padding: const EdgeInsets.only(bottom: 5),
+                    child: Container(
+                      child:
+                          Image.asset('assets/images/icon_basket_active.png'),
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                              color: CustomColor.blue,
+                              blurRadius: 20,
+                              spreadRadius: -7,
+                              offset: Offset(0.0, 13))
+                        ],
+                      ),
+                    ),
+                  ),
+                  label: 'سبد خرید',
+                ),
+                BottomNavigationBarItem(
+                  icon: Image.asset('assets/images/icon_category (1).png'),
+                  activeIcon: Padding(
+                    padding: const EdgeInsets.only(bottom: 5),
+                    child: Container(
+                      child:
+                          Image.asset('assets/images/icon_category_active.png'),
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                              color: CustomColor.blue,
+                              blurRadius: 20,
+                              spreadRadius: -7,
+                              offset: Offset(0.0, 13))
+                        ],
+                      ),
+                    ),
+                  ),
+                  label: 'دسته بندی',
                 ),
                 BottomNavigationBarItem(
                   icon: Image.asset('assets/images/icon_home.png'),
-                  label: 'home',
-                ),
-                BottomNavigationBarItem(
-                  icon: Image.asset('assets/images/icon_home.png'),
-                  label: 'home',
-                ),
-                BottomNavigationBarItem(
-                  icon: Image.asset('assets/images/icon_home.png'),
-                  label: 'home',
+                  activeIcon: Padding(
+                    padding: const EdgeInsets.only(bottom: 5),
+                    child: Container(
+                      child:
+                          Image.asset('assets/images/icon_home_active.png'),
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                              color: CustomColor.blue,
+                              blurRadius: 20,
+                              spreadRadius: -7,
+                              offset: Offset(0.0, 13))
+                        ],
+                      ),
+                    ),
+                  ),
+                  label: 'خانه',
                 ),
               ],
             ),
@@ -59,4 +124,5 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
+  
 }
