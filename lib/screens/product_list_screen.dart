@@ -1,3 +1,4 @@
+import 'package:digi_kala_project/widgets/header.dart';
 import 'package:digi_kala_project/widgets/product_item.dart';
 import 'package:flutter/material.dart';
 
@@ -14,37 +15,7 @@ class ProductListScreen extends StatelessWidget {
         child: CustomScrollView(
           slivers: [
             SliverToBoxAdapter(
-              child: Padding(
-                padding:
-                    EdgeInsets.only(left: 44, right: 44, bottom: 32, top: 20),
-                child: Container(
-                  height: 46,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(15),
-                    ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: Row(
-                      children: [
-                        Image.asset('assets/images/icon_apple_blue.png'),
-                        Expanded(
-                          child: Text(
-                            'پر فروش ترین ها',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontFamily: 'SB',
-                                fontSize: 16,
-                                color: CustomColor.blue),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
+              child: Header(),
             ),
             SliverPadding(
               padding: const EdgeInsets.symmetric(

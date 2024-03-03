@@ -3,6 +3,7 @@ import 'package:digi_kala_project/constants/colors.dart';
 import 'package:digi_kala_project/screens/category_screen.dart';
 import 'package:digi_kala_project/screens/home_screen.dart';
 import 'package:digi_kala_project/screens/product_list_screen.dart';
+import 'package:digi_kala_project/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -24,7 +25,6 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: CustomColor.backGroundScreen,
-        appBar: AppBar(),
         body: IndexedStack(
           index: selecBottomNavigationState,
           children: getScreen(),
@@ -142,7 +142,7 @@ class _MyAppState extends State<MyApp> {
 
   List<Widget> getScreen() {
     return <Widget>[
-      CategoryScreen(),
+      ProfileScreen(),
       HomeScreen(),
       ProductListScreen(),
       CategoryScreen()

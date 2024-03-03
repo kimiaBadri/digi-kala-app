@@ -1,3 +1,4 @@
+import 'package:digi_kala_project/widgets/header.dart';
 import 'package:flutter/material.dart';
 import '../constants/colors.dart';
 
@@ -11,39 +12,7 @@ class CategoryScreen extends StatelessWidget {
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
-            SliverToBoxAdapter(
-              child: Padding(
-                padding:
-                    EdgeInsets.only(left: 44, right: 44, bottom: 32, top: 20),
-                child: Container(
-                  height: 46,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(15),
-                    ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: Row(
-                      children: [
-                        Image.asset('assets/images/icon_apple_blue.png'),
-                        Expanded(
-                          child: Text(
-                            'دسته بندی',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontFamily: 'SB',
-                                fontSize: 16,
-                                color: CustomColor.blue),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            SliverToBoxAdapter(child: Header()),
             SliverPadding(
               padding: const EdgeInsets.symmetric(
                 horizontal: 44,
