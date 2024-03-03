@@ -1,6 +1,7 @@
 import 'dart:ui';
-
 import 'package:digi_kala_project/constants/colors.dart';
+import 'package:digi_kala_project/screens/category_screen.dart';
+import 'package:digi_kala_project/screens/home_screen.dart';
 import 'package:digi_kala_project/screens/product_list_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -8,9 +9,15 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int selecBottomNavigationState = 0;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,11 +25,20 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: CustomColor.backGroundScreen,
         appBar: AppBar(),
-        body: ProductListScreen(),
+        body: IndexedStack(
+          index: selecBottomNavigationState,
+          children: getScreen(),
+        ),
         bottomNavigationBar: ClipRRect(
           child: BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 40, sigmaY: 40),
             child: BottomNavigationBar(
+              currentIndex: selecBottomNavigationState,
+              onTap: (int index) {
+                setState(() {
+                  selecBottomNavigationState = index;
+                });
+              },
               type: BottomNavigationBarType.fixed,
               backgroundColor: Colors.transparent,
               elevation: 0,
@@ -102,8 +118,7 @@ class MyApp extends StatelessWidget {
                   activeIcon: Padding(
                     padding: const EdgeInsets.only(bottom: 5),
                     child: Container(
-                      child:
-                          Image.asset('assets/images/icon_home_active.png'),
+                      child: Image.asset('assets/images/icon_home_active.png'),
                       decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
@@ -124,5 +139,13 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
-  
+
+  List<Widget> getScreen() {
+    return <Widget>[
+      CategoryScreen(),
+      HomeScreen(),
+      ProductListScreen(),
+      CategoryScreen()
+    ];
+  }
 }
