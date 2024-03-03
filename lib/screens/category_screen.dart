@@ -12,7 +12,10 @@ class CategoryScreen extends StatelessWidget {
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
-            SliverToBoxAdapter(child: Header()),
+            SliverToBoxAdapter(
+                child: Header(
+              text: 'خانه',
+            )),
             SliverPadding(
               padding: const EdgeInsets.symmetric(
                 horizontal: 44,

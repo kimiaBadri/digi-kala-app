@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import '../constants/colors.dart';
 
 class Header extends StatelessWidget {
-  const Header({super.key});
+  final String? text;
+  Header({super.key, this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class Header extends StatelessWidget {
               Image.asset('assets/images/icon_apple_blue.png'),
               Expanded(
                 child: Text(
-                  'دسته بندی',
+                  text.toString(),
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontFamily: 'SB', fontSize: 16, color: CustomColor.blue),

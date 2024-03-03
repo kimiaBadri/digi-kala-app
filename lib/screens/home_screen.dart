@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../constants/colors.dart';
 import '../widgets/banner_slider.dart';
+import '../widgets/category_icon_item_chip.dart';
 import '../widgets/product_item.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -82,7 +83,7 @@ class HomeScreen extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return Padding(
                         padding: const EdgeInsets.only(left: 20),
-                        child: CategoryHorizontalItem(),
+                        child: CategoryIconItemChip(),
                       );
                     },
                   ),
@@ -192,56 +193,5 @@ class HomeScreen extends StatelessWidget {
     //     },
     //   ),
     // ),
-  }
-}
-
-class CategoryHorizontalItem extends StatelessWidget {
-  const CategoryHorizontalItem({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Stack(
-          alignment: AlignmentDirectional.center,
-          children: [
-            Container(
-              height: 56,
-              width: 56,
-              decoration: ShapeDecoration(
-                shadows: [
-                  BoxShadow(
-                    color: CustomColor.indicatorColor,
-                    blurRadius: 50,
-                    spreadRadius: -12,
-                    offset: Offset(0.0, 15.0),
-                  )
-                ],
-                color: CustomColor.indicatorColor,
-                shape: ContinuousRectangleBorder(
-                  borderRadius: BorderRadius.circular(40),
-                ),
-              ),
-            ),
-            const Icon(
-              Icons.mouse,
-              color: Colors.white,
-              size: 32,
-            )
-          ],
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        const Text(
-          'همه',
-          style: TextStyle(
-            fontFamily: 'SB',
-          ),
-        ),
-      ],
-    );
   }
 }

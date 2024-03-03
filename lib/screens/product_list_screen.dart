@@ -15,7 +15,9 @@ class ProductListScreen extends StatelessWidget {
         child: CustomScrollView(
           slivers: [
             SliverToBoxAdapter(
-              child: Header(),
+              child: Header(
+                text: 'دسته بندی',
+              ),
             ),
             SliverPadding(
               padding: const EdgeInsets.symmetric(
