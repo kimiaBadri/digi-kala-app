@@ -1,7 +1,6 @@
 import 'package:digi_kala_project/widgets/category_icon_item_chip.dart';
 import 'package:digi_kala_project/widgets/header.dart';
 import 'package:flutter/material.dart';
-
 import '../constants/colors.dart';
 
 class ProfileScreen extends StatelessWidget {
