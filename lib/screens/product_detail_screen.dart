@@ -385,9 +385,89 @@ class ProductDetailScreen extends StatelessWidget {
                             color: CustomColor.blue),
                       ),
                       Spacer(),
+                      Stack(
+                        clipBehavior: Clip.none,
+                        children: [
+                          Container(
+                            margin: EdgeInsets.symmetric(horizontal: 10),
+                            height: 26,
+                            width: 26,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(8),
+                                ),
+                                color: Colors.green),
+                          ),
+                          Positioned(
+                            right: 15,
+                            child: Container(
+                              margin: EdgeInsets.symmetric(horizontal: 10),
+                              height: 26,
+                              width: 26,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(8),
+                                  ),
+                                  color: Colors.red),
+                            ),
+                          ),
+                          Positioned(
+                            right: 30,
+                            child: Container(
+                              margin: EdgeInsets.symmetric(horizontal: 10),
+                              height: 26,
+                              width: 26,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(8),
+                                  ),
+                                  color: Colors.yellow),
+                            ),
+                          ),
+                          Positioned(
+                            right: 45,
+                            child: Container(
+                              margin: EdgeInsets.symmetric(horizontal: 10),
+                              height: 26,
+                              width: 26,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(8),
+                                  ),
+                                  color: Colors.blue),
+                            ),
+                          ),
+                          Positioned(
+                            right: 60,
+                            child: Container(
+                              margin: EdgeInsets.symmetric(horizontal: 10),
+                              height: 26,
+                              width: 26,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(8),
+                                  ),
+                                  color: Colors.grey),
+                              child: Center(
+                                child: Text(
+                                  '+10',
+                                  style: TextStyle(
+                                    fontFamily: 'SB',
+                                    fontSize: 10,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                       Text(
                         ': نظرات کاربران',
                         style: TextStyle(fontFamily: 'SM', color: Colors.black),
+                      ),
+                      SizedBox(
+                        width: 10,
                       ),
                     ],
                   ),
