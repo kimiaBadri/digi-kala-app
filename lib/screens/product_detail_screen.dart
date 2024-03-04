@@ -476,14 +476,16 @@ class ProductDetailScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SliverPadding(padding: EdgeInsets.only(top: 20)),
             SliverToBoxAdapter(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  PriceTagButton(),
-                  AddToBasketButton(),
-                ],
+              child: Padding(
+                padding: const EdgeInsets.only(top: 20, right: 44, left: 44),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    PriceTagButton(),
+                    AddToBasketButton(),
+                  ],
+                ),
               ),
             )
           ],
