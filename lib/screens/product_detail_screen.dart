@@ -202,7 +202,7 @@ class ProductDetailScreen extends StatelessWidget {
             ),
             SliverToBoxAdapter(
               child: Padding(
-                padding: const EdgeInsets.only(top: 20, left: 44, right: 44),
+                padding: const EdgeInsets.only(top: 10, left: 44, right: 44),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
@@ -326,7 +326,7 @@ class ProductDetailScreen extends StatelessWidget {
             ),
             SliverToBoxAdapter(
               child: Container(
-                margin: EdgeInsets.only(left: 44, right: 44, top: 20),
+                margin: EdgeInsets.only(left: 44, right: 44, top: 10),
                 height: 46,
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -362,7 +362,7 @@ class ProductDetailScreen extends StatelessWidget {
             ),
             SliverToBoxAdapter(
               child: Container(
-                margin: EdgeInsets.only(left: 44, right: 44, top: 20),
+                margin: EdgeInsets.only(left: 44, right: 44, top: 10),
                 height: 46,
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -476,7 +476,16 @@ class ProductDetailScreen extends StatelessWidget {
                 ),
               ),
             ),
-            AddToBasketButton()
+            SliverPadding(padding: EdgeInsets.only(top: 20)),
+            SliverToBoxAdapter(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  PriceTagButton(),
+                  AddToBasketButton(),
+                ],
+              ),
+            )
           ],
         ),
       ),
@@ -491,42 +500,140 @@ class AddToBasketButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-      child: Stack(
-        alignment: AlignmentDirectional.bottomCenter,
-        children: [
-          Container(
-            width: 140,
-            height: 60,
-            decoration: BoxDecoration(
-              color: CustomColor.blue,
-              borderRadius: BorderRadius.all(
-                Radius.circular(15),
+    return Stack(
+      alignment: AlignmentDirectional.bottomCenter,
+      children: [
+        Container(
+          width: 140,
+          height: 60,
+          decoration: BoxDecoration(
+            color: CustomColor.blue,
+            borderRadius: BorderRadius.all(
+              Radius.circular(15),
+            ),
+          ),
+        ),
+        Positioned(
+          child: ClipRRect(
+            borderRadius: BorderRadius.all(
+              Radius.circular(15),
+            ),
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+              child: Container(
+                width: 160,
+                height: 53,
+                child: Center(
+                    child: Text(
+                  'افزودن به سبد خرید',
+                  style: TextStyle(
+                      fontFamily: 'SB', fontSize: 14, color: Colors.white),
+                )),
               ),
             ),
           ),
-          Positioned(
-            child: ClipRRect(
-              borderRadius: BorderRadius.all(
-                Radius.circular(15),
-              ),
-              child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-                child: Container(
-                  width: 160,
-                  height: 53,
-                  child: Center(
-                      child: Text(
-                    'افزودن به سبد خرید',
-                    style: TextStyle(
-                        fontFamily: 'SB', fontSize: 14, color: Colors.white),
-                  )),
+        )
+      ],
+    );
+  }
+}
+
+class PriceTagButton extends StatelessWidget {
+  const PriceTagButton({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      alignment: AlignmentDirectional.bottomCenter,
+      children: [
+        Container(
+          width: 140,
+          height: 60,
+          decoration: BoxDecoration(
+            color: CustomColor.green,
+            borderRadius: BorderRadius.all(
+              Radius.circular(15),
+            ),
+          ),
+        ),
+        Positioned(
+          child: ClipRRect(
+            borderRadius: BorderRadius.all(
+              Radius.circular(15),
+            ),
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+              child: Container(
+                width: 160,
+                height: 53,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      const Text(
+                        'تومان',
+                        style: TextStyle(
+                            fontFamily: 'SM',
+                            fontSize: 12,
+                            color: Colors.white),
+                      ),
+                      const SizedBox(
+                        width: 6,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '۱۱٬۱۴۰٬۰۰۰',
+                            style: TextStyle(
+                                color: Colors.white,
+                                decoration: TextDecoration.lineThrough,
+                                fontFamily: 'SM',
+                                fontSize: 12),
+                          ),
+                          Text(
+                            '۱۱٬۱۴۰٬۰۰۰',
+                            style: TextStyle(
+                                fontFamily: 'SM',
+                                fontSize: 16,
+                                color: Colors.white),
+                          ),
+                        ],
+                      ),
+                      Spacer(),
+                      Container(
+                        decoration: const BoxDecoration(
+                          color: Colors.red,
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(20),
+                          ),
+                        ),
+                        child: const Padding(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 2,
+                            horizontal: 6,
+                          ),
+                          child: Text(
+                            '3%',
+                            style: TextStyle(
+                                fontFamily: 'SB',
+                                fontSize: 12,
+                                color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-          )
-        ],
-      ),
+          ),
+        ),
+      ],
     );
   }
 }
