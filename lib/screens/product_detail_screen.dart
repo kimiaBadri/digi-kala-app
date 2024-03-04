@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 import '../constants/colors.dart';
@@ -15,7 +17,7 @@ class ProductDetailScreen extends StatelessWidget {
             SliverToBoxAdapter(
               child: Padding(
                 padding:
-                    EdgeInsets.only(left: 44, right: 44, bottom: 32, top: 20),
+                    EdgeInsets.only(left: 44, right: 44, bottom: 24, top: 20),
                 child: Container(
                   height: 46,
                   decoration: BoxDecoration(
@@ -474,9 +476,57 @@ class ProductDetailScreen extends StatelessWidget {
                 ),
               ),
             ),
+            AddToBasketButton()
           ],
         ),
       ),
     ));
+  }
+}
+
+class AddToBasketButton extends StatelessWidget {
+  const AddToBasketButton({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SliverToBoxAdapter(
+      child: Stack(
+        alignment: AlignmentDirectional.bottomCenter,
+        children: [
+          Container(
+            width: 140,
+            height: 60,
+            decoration: BoxDecoration(
+              color: CustomColor.blue,
+              borderRadius: BorderRadius.all(
+                Radius.circular(15),
+              ),
+            ),
+          ),
+          Positioned(
+            child: ClipRRect(
+              borderRadius: BorderRadius.all(
+                Radius.circular(15),
+              ),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                child: Container(
+                  width: 160,
+                  height: 53,
+                  child: Center(
+                      child: Text(
+                    'افزودن به سبد خرید',
+                    style: TextStyle(
+                        fontFamily: 'SB', fontSize: 14, color: Colors.white),
+                  )),
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
